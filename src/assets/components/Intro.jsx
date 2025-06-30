@@ -1,6 +1,6 @@
 import React from 'react'
+import profile from '../../../public/assets/Profile.jpg'
 
-import profile from "../../../public/assets/Profile.jpg"
 export default function IntroPersonalBrand() {
   return (
     <div className="flex items-center justify-center mt-[60px] ">
