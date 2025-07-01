@@ -5,7 +5,7 @@ import BarChartH from './BarChartH'
 export default function BarChart() {
     return (
         <>
-            <section className="flex justify-center items-center p-6 gap-4">
+            <section className="w-full flex justify-center p-6 gap-4">
                 <BarChartV />
                 <BarChartH />
             </section>

@@ -6,13 +6,16 @@ export default function Dashboard() {
 
     return (
         <>
-            <header className='flex pl-[320px] p-6 pt-[60px]'>
-                <h1 className='text-[22px] font-bold text-[#0D141C] leading-[28px] tracking-[0px]'>Skills Dashboard</h1>
-            </header>
+            <div className="w-full bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-9 mt-10 text-white shadow-xl max-w-6xl mx-auto">
 
-            <BarChart />
+                <header className='mx-6'>
+                    <h1 className="text-[22px] font-bold leading-[28px] tracking-[0px] text-white/90">Skills Dashboard</h1>
+                </header>
 
-            <SkillValue />
+                <BarChart />
+
+                <SkillValue />
+            </div>
 
         </>
     )

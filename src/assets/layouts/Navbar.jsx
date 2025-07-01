@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
 
     return (
         <>
-            <div className="w-full">
-                <nav className="bg-white border px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center w-full">
+            <div className="flex w-full">
+                <div className={`${scrolled ? 'h-[70px]' : ''}`} />
+                <nav
+                    className={`
+                    ${scrolled ? 'h-10 fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-4 sm:px-6 flex justify-between items-center transition-all duration-300 ease-in-out bg-white/10 backdrop-blur w-2/4 rounded-xl border border-white/10 shadow-md' : 'bg-transparent px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center w-full'}
+                    `}
+                >
+
                     <h1 className="font-sans font-bold text-[16px] sm:text-[18px] md:text-[20px] pl-2 sm:pl-[32px] md:pl-[56px] lg:pl-[72px]">
                         Portofolio
                     </h1>
@@ -14,7 +30,7 @@ export default function Navbar() {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
-                            className="focus:outline-none group"
+                            className='focus:outline-none group'
                             aria-label="Toggle menu"
                         >
                             <svg
@@ -70,7 +86,7 @@ export default function Navbar() {
                             </a>
                         </li>
                         <button
-                            className='max-w-full sm:w-[88px] h-[36px] sm:h-[40px] bg-[#1A80E5] text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition'
+                            className={`max-w-full sm:w-[88px] h-[36px] bg-[#1A80E5] text-white rounded-lg hover:bg-blue-500 transition ${scrolled ? 'h-[30px]' : 'h-[40px]'}`}
                         >
                             <a
                                 href="#"

@@ -1,10 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react';
+
+const ProjectSlider = ({ images }) => {
+    const [index, setIndex] = useState(0);
+
+    const prevSlide = () => {
+        setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+    const nextSlide = () => {
+        setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
+    return (
+        <div className="relative w-full overflow-hidden rounded-2xl shadow border border-[#E5E7EB]">
+            <img
+                src={images[index]}
+                alt={`Project ${index + 1}`}
+                className="w-full h-[650px]
+
+                        object-cover bg-[#F5F5F5] rounded-lg shadow-md"
+            />
+            <button
+                onClick={prevSlide}
+                className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#2563EB] px-3 py-1 rounded-full shadow"
+            >
+                ‹
+            </button>
+            <button
+                onClick={nextSlide}
+                className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#2563EB] px-3 py-1 rounded-full shadow"
+            >
+                ›
+            </button>
+        </div>
+    );
+};
 
 export default function Projects() {
     return (
-        <>
-            <div className="flex justify-between items-center pt-5">
-                <h1 className="font-bold leading-7 tracking-0 pl-[325px] 
+        <div className='w-[90%] bg-white/10 p-9 backdrop-blur-md border border-white/10 rounded-xl mt-10 text-white shadow-xl mx-auto'>
+            <div className="flex justify-center pb-5">
+                <h1 className="font-bold text-white/90 leading-7 tracking-0 
         text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[16px]">
                     Projects
                 </h1>
@@ -16,96 +52,12 @@ export default function Projects() {
         xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col
       "
             >
-                <div className="flex flex-col items-center">
-                    <img
-                        className="
-          w-[285px] h-[169px] bg-[#F5F5F5] rounded-lg shadow-md
-          xl:w-[285px] xl:h-[169px]
-          lg:w-[240px] lg:h-[140px]
-          md:w-[200px] md:h-[120px]
-          sm:w-full sm:h-[180px]
-          object-cover
-        "
-                        alt="AI Chatbot with OpenAI"
-                    />
-                    <div className="
-        flex flex-col gap-1 pt-3
-        w-[285px] xl:w-[285px] lg:w-[240px] md:w-[200px]
-        sm:max-w-[285px] sm:w-full
-        ">
-                        <h1 className="font-medium text-[#0D141C]
-          text-base xl:text-base lg:text-[15px] md:text-[14px] sm:text-[13px]
-        ">
-                            AI Chatbot with OpenAI
-                        </h1>
-                        <p className="text-[#4F7396] leading-[21px] tracking-[0px]
-          text-[14px] xl:text-[14px] lg:text-[13px] md:text-[12px] sm:text-[11px]
-        ">
-                            This project is a simple chatbot that uses the OpenAI API to generate responses to user queries.
-                        </p>
-                    </div>
+                <div className="w-full rounded-3xl">
+                    <ProjectSlider images={["../../../public/assets/images/project1.webp", "../../../public/assets/images/project2.webp", "../../../public/assets/images/project3.jpg"]} />
                 </div>
 
-                <div className="flex flex-col items-center">
-                    <img
-                        className="
-          w-[285px] h-[169px] bg-[#F5F5F5] rounded-lg shadow-md
-          xl:w-[285px] xl:h-[169px]
-          lg:w-[240px] lg:h-[140px]
-          md:w-[200px] md:h-[120px]
-          sm:w-full sm:h-[180px]
-          object-cover
-        "
-                        alt="A Digital Book Note"
-                    />
-                    <div className="
-        flex flex-col gap-1 pt-3
-        w-[285px] xl:w-[285px] lg:w-[240px] md:w-[200px]
-        sm:max-w-[285px] sm:w-full
-        ">
-                        <h1 className="font-medium text-[#0D141C]
-          text-base xl:text-base lg:text-[15px] md:text-[14px] sm:text-[13px]
-        ">
-                            A Digital Book Note
-                        </h1>
-                        <p className="text-[#4F7396] leading-[21px] tracking-[0px]
-          text-[14px] xl:text-[14px] lg:text-[13px] md:text-[12px] sm:text-[11px]
-        ">
-                            This project is a digital note-taking application that allows users to create, edit, and organize their notes.
-                        </p>
-                    </div>
-                </div>
 
-                <div className="flex flex-col items-center">
-                    <img
-                        className="
-          w-[285px] h-[169px] bg-[#F5F5F5] rounded-lg shadow-md
-          xl:w-[285px] xl:h-[169px]
-          lg:w-[240px] lg:h-[140px]
-          md:w-[200px] md:h-[120px]
-          sm:w-full sm:h-[180px]
-          object-cover
-        "
-                        alt="Portfolio Website"
-                    />
-                    <div className="
-        flex flex-col gap-1 pt-3
-        w-[285px] xl:w-[285px] lg:w-[240px] md:w-[200px]
-        sm:max-w-[285px] sm:w-full
-        ">
-                        <h1 className="font-medium text-[#0D141C]
-          text-base xl:text-base lg:text-[15px] md:text-[14px] sm:text-[13px]
-        ">
-                            Portfolio Website
-                        </h1>
-                        <p className="text-[#4F7396] leading-[21px] tracking-[0px]
-          text-[14px] xl:text-[14px] lg:text-[13px] md:text-[12px] sm:text-[11px]
-        ">
-                            This project is a personal portfolio website that showcases my skills, projects, and experience.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </>
+            </section >
+        </div>
     )
 }

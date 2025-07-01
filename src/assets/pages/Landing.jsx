@@ -10,18 +10,16 @@ function App() {
 
   return (
     <>
+
       <Navbar />
 
       <IntroPersonalBrand />
 
       <Dashboard />
 
-      <SkillAdd />
-
       <Projects />
 
       <Footer />
-
     </>
   );
 }
