@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 
-import profile from '../../../public/assets/images/Profile.jpg'
 
 export default function IntroPersonalBrand() {
   return (
@@ -12,7 +11,7 @@ export default function IntroPersonalBrand() {
         viewport={{ once: true }}
         transition={{ duration: 2 }}>
         <img
-          src={profile}
+          src="/assets/images/Profile.jpg"
           alt="Profile"
           className="w-[449px] h-[277px] rounded-lg shadow-lg mr-8 object-cover transition-transform duration-300 ease-in-out hover:shadow-2xl"
           style={{ aspectRatio: "16/10" }}

@@ -67,7 +67,7 @@ export default function Projects({ projectName }) {
       "
             >
                 <div className="w-full rounded-3xl">
-                    <ProjectSlider images={["../../../public/assets/images/Project1.png", "../../../public/assets/images/Project2.png", "../../../public/assets/images/Project3.png"]} />
+                    <ProjectSlider images={["/assets/images/Project1.png", "/assets/images/Project2.png", "/assets/images/Project3.png"]} />
                 </div>
 
 
