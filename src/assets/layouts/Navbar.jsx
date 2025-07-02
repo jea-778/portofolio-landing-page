@@ -1,4 +1,6 @@
+import { div } from 'framer-motion/client';
 import React, { useState, useEffect } from 'react'
+
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -6,26 +8,43 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 430);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
 
+
     return (
         <>
             <div className="flex w-full">
-                <div className={`${scrolled ? 'h-[70px]' : ''}`} />
+                <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#B983FF]/100 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
+
                 <nav
-                    className={`
-                    ${scrolled ? 'h-10 fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-4 sm:px-6 flex justify-between items-center transition-all duration-300 ease-in-out bg-white/10 backdrop-blur w-2/4 rounded-xl border border-white/10 shadow-md' : 'bg-transparent px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center w-full'}
-                    `}
+                    className={`fixed top-4 z-50 left-[45%] flex items-center justify-center transition-all duration-300 ease-in-out
+                                ${scrolled && 'flex left-[600px] gap-9 px-4 py-2 bg-white/10 backdrop-blur rounded-xl transition-all duration-300 ease-in-out'}
+                            `}
                 >
 
-                    <h1 className="font-sans font-bold text-[16px] sm:text-[18px] md:text-[20px] pl-2 sm:pl-[32px] md:pl-[56px] lg:pl-[72px]">
-                        Portofolio
-                    </h1>
+                    <div className='flex justify-center items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#ffffff"><path d="M400-160h160v-160H400v160ZM160-400h160v-160H160v160Zm240 0h160v-160H400v160Zm240 0h160v-160H640v160Zm0-240h160v-160H640v160ZM320-80v-240H80v-320h480v-240h320v560H640v240H320Z" /></svg>
+                        <a href='#' className="font-[900] text-white text-[24px] fon-sora drop-shadow-[0_2px_6px_rgba(26,128,229,0.6)] select-none">
+                            JDRE
+                        </a>
+                    </div>
+                    {scrolled && (
+                        <div className='grid grid-cols-2 gap-3'>
+                            <button className="w-full px-2 py-2 text-sm border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1A80E5] transition-transform shadow duration-200 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                                View Projects
+                            </button>
+                            <button className="w-full px-2 py-2 text-sm border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1A80E5] transition-transform shadow duration-200 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                                About Me
+                            </button>
+                        </div>
+                    )}
+
+
                     {/* Hamburger menu for mobile */}
                     <div className="md:hidden flex items-center">
                         <button
@@ -51,52 +70,7 @@ export default function Navbar() {
                             </svg>
                         </button>
                     </div>
-                    {/* Desktop menu */}
-                    <ul className="hidden md:flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 pr-2 sm:pr-[20px] md:pr-[32px] lg:pr-[40px]">
-                        <li>
-                            <a
-                                href="#"
-                                className="font-medium text-[#0D141C] font-sans leading-[18px] sm:leading-[21px] tracking-[0px] text-[12px] sm:text-[14px] md:text-[15px] hover:text-blue-600 transition"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="font-medium text-[#0D141C] font-sans leading-[18px] sm:leading-[21px] tracking-[0px] text-[12px] sm:text-[14px] md:text-[15px] hover:text-blue-600 transition"
-                            >
-                                Skills
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="font-medium text-[#0D141C] font-sans leading-[18px] sm:leading-[21px] tracking-[0px] text-[12px] sm:text-[14px] md:text-[15px] hover:text-blue-600 transition"
-                            >
-                                Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="font-medium text-[#0D141C] font-sans leading-[18px] sm:leading-[21px] tracking-[0px] text-[12px] sm:text-[14px] md:text-[15px] hover:text-blue-600 transition"
-                            >
-                                About
-                            </a>
-                        </li>
-                        <button
-                            className={`max-w-full sm:w-[88px] h-[36px] bg-[#1A80E5] text-white rounded-lg hover:bg-blue-500 transition ${scrolled ? 'h-[30px]' : 'h-[40px]'}`}
-                        >
-                            <a
-                                href="#"
-                                className="font-sans font-bold text-[12px] sm:text-[14px] leading-[18px] sm:leading-[21px] tracking-[0px] text-white block w-full"
-                            >
-                                Contact
-                            </a>
-                        </button>
-                    </ul>
-                    {/* Mobile dropdown menu with slide-down and fade-in animation */}
+
                     <div
                         className={`
                             fixed left-0 top-0 w-full max-w-full bg-white shadow-md z-50 md:hidden
@@ -160,7 +134,7 @@ export default function Navbar() {
                             </div>
                         </ul>
                     </div>
-                    {/* Overlay for mobile menu */}
+
                     {menuOpen && (
                         <div
                             className="fixed inset-0 bg-black bg-opacity-30 z-40 md:hidden"
@@ -172,7 +146,7 @@ export default function Navbar() {
                     )}
                 </nav>
             </div>
-            {/* Custom keyframes for overlay fade-in and menu slide-down */}
+
             <style>{`
                 @keyframes fadeInOverlay {
                     from { opacity: 0; }

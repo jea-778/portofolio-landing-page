@@ -3,36 +3,35 @@ import React from 'react'
 export default function Footer() {
     return (
         <>
-            <footer className="h-[500px] ">
-                <div className=" flex flex-col pl-[325px] pt-10 gap-4">
-                    <h1 className="text-[22px] font-bold leading-7 tracking-0" >About Me</h1>
-                    <p className="text-[16px] leading-[24px] tracking-0">
-                        I am a passionate software engineer with a strong background in AI and web development.
-                        I enjoy solving complex <br /> problems and creating innovative solutions.
-                        My goal is to leverage technology to make a positive impact on the world.
-                    </p>
+            <footer className="bg-gradient-to-t from-[#0D3B66] via-[#1E3A8A] to-transparent text-white pt-16 px-8 border-t border-white/10 mt-10">
+                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+                    {/* About Me */}
+                    <div>
+                        <h1 className="text-2xl font-bold tracking-wider mb-4">About Me</h1>
+                        <p className="text-white/80 text-sm leading-relaxed max-w-xl">
+                            I am a passionate software engineer with a strong background in AI and web development. I enjoy solving complex problems and creating innovative solutions. My goal is to leverage technology to make a positive impact on the world.
+                        </p>
+                    </div>
+
+                    {/* Links & Social */}
+                    <div className="flex flex-col items-end gap-6 p-6">
+                        <div className="flex flex-col gap-2">
+                            <a href="#" className="text-white/70 hover:text-blue-400 text-sm">Resume</a>
+                            <a href="#" className="text-white/70 hover:text-blue-400 text-sm">Contact</a>
+                        </div>
+                        <div className="flex gap-4 mt-2">
+                            <img src="/assets/icons/linkedin.png" alt="LinkedIn" className="w-6 h-6 hover:opacity-80 transition" />
+                            <img src="/assets/icons/github.png" alt="GitHub" className="w-6 h-6 hover:opacity-80 transition" />
+                        </div>
+                    </div>
                 </div>
 
-                <div className="flex justify-around items-center pt-10 gap-4">
-                    <h2 className="text-[16px] text-[#4F7396] leading-[24px] tracking-0 pt-10">
-                        Resume
-                    </h2>
-                    <h2 className="text-[16px] text-[#4F7396] leading-[24px] tracking-0 pt-10">
-                        Contact
-                    </h2>
-                </div>
-
-                <div className="flex justify-center items-center pt-10 gap-4">
-                    <img src="../../../public/assets/icons/linkedin.png" alt="" />
-                    <img src="../../../public/assets/icons/github.png" alt="" />
-                </div>
-
-                <div className="flex font-sans justify-center items-center pt-10">
-                    <p className="text-[16px] text-[#4F7396] leading-[24px] tracking-0 pt-10">
-                        @2025 Jea Portfolio
-                    </p>
+                <div className="mt-12 text-center text-white/40 text-sm tracking-wide p-6">
+                    © 2025 JDRE Portfolio. All rights reserved.
                 </div>
             </footer>
+
         </>
     )
 }

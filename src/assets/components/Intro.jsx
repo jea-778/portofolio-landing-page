@@ -5,7 +5,7 @@ import profile from '../../../public/assets/images/Profile.jpg'
 
 export default function IntroPersonalBrand() {
   return (
-    <div className="flex items-center justify-center pt-[40px] ">
+    <div className="flex items-center justify-center mt-[150px] ">
       <motion.div
         initial={{ opacity: 0, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,9 +25,15 @@ export default function IntroPersonalBrand() {
         <p className="text-[16px] leading-[24px] pb-[32px] text-[#E2E8F0]">
           I specialize in building scalable web applications and AI-<br />powered solutions. Explore my portfolio to see my work <br /> and skills.
         </p>
-        <button className="w-full h-[48px] border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1A80E5] transition-transform shadow duration-200 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
-          View Projects
-        </button>
+
+        <div className='grid grid-cols-2 gap-3'>
+          <button className="w-full h-[48px] border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1A80E5] transition-transform shadow duration-200 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+            View Projects
+          </button>
+          <button className="w-full h-[48px] border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1A80E5] transition-transform shadow duration-200 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+            About Me
+          </button>
+        </div>
 
       </div>
     </div>
