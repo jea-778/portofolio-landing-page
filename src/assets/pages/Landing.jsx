@@ -1,4 +1,4 @@
-
+import { Element } from "react-scroll";
 
 import Navbar from "../layouts/Navbar"
 import IntroPersonalBrand from "../components/Intro"
@@ -7,17 +7,19 @@ import SkillAdd from "../components/SkillAdd";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 function App() {
-
   return (
     <>
       <Navbar />
+      <Element name="home" />
 
       <IntroPersonalBrand />
 
       <Dashboard />
 
-      <Projects />
+      <Element name="projects" />
+      <Projects projectName="FILM API TMDB" />
 
+      <Element name="about" />
       <Footer />
     </>
   );

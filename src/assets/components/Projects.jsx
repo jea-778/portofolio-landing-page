@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ProjectSlider = ({ images }) => {
     const [index, setIndex] = useState(0);
 
     const prevSlide = () => {
-        setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    };
+        setIndex(prev => prev === 0 ? images.length - 1 : prev - 1)
+    }
 
     const nextSlide = () => {
-        setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    };
+        setIndex(prev => prev === images.length - 1 ? 0 : prev + 1)
+    }
 
     return (
         <div className="relative w-full overflow-hidden rounded-2xl">
-            <img
-                src={images[index]}
-                alt={`Project ${index + 1}`}
-                className="w-full h-[650px] object-cover bg-[#F5F5F5] rounded-lg shadow-md cursor-grab"
-            />
+            <div className="flex transition-transform duration-500 ease-in-out h-full"
+                style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+                {images.map((src, i) => (
+                    <img
+                        key={i}
+                        src={src}
+                        alt={`Project ${i + 1}`}
+                        className="w-full h-full flex-shrink-0 object-cover aspect-16/9 "
+                    />
+                ))}
+            </div>
+
             <button
                 onClick={prevSlide}
                 className="absolute top-1/2 left-4 -translate-y-1/2 
@@ -52,10 +60,12 @@ const ProjectSlider = ({ images }) => {
 
 export default function Projects({ projectName }) {
     return (
-        <div className='w-[90%] bg-white/10 p-9 backdrop-blur-md border border-white/10 rounded-xl mt-10 text-white shadow-xl mx-auto'>
+        <div className="w-[90%] bg-white/10 p-9 backdrop-blur-md border border-white/10 rounded-xl mt-10 text-white shadow-xl mx-auto">
             <div className="flex justify-center pb-5">
-                <h1 className="font-bold text-white/90 leading-7 tracking-0 
-        text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[16px]">
+                <h1
+                    className="font-bold text-white/90 leading-7 tracking-0 
+        text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[16px]"
+                >
                     {projectName}
                 </h1>
             </div>
@@ -67,11 +77,15 @@ export default function Projects({ projectName }) {
       "
             >
                 <div className="w-full rounded-3xl">
-                    <ProjectSlider images={["/assets/images/Project1.png", "/assets/images/Project2.png", "/assets/images/Project3.png"]} />
+                    <ProjectSlider
+                        images={[
+                            "/assets/images/Project1.png",
+                            "/assets/images/Project2.png",
+                            "/assets/images/Project3.png",
+                        ]}
+                    />
                 </div>
-
-
-            </section >
+            </section>
         </div>
-    )
+    );
 }
